@@ -1,3 +1,8 @@
+## Deroulement de l'atelier
+
+#### Mise en place de la fenetre pygame
+
+```python
 import pygame
 
 # initiatlisation de pygame
@@ -14,28 +19,37 @@ pygame.display.set_caption("Nom de la fenetre") # ajout d'un nom à la fenetre
 icon = pygame.image.load('gaming.png') #affectation d'une image dans une variable
 pygame.display.set_icon(icon) # mise en place de l'image sur la fenetre
 
+```
 
-#Couleurs
-WHITE = (255,255,255)
-BLACK = (0,0,0)
-GREEN = (0,150,0)
-RED = (150,0,0)
+#### Mise en place de la boucle d'affichage de la fenetre 
 
-# mise en place d'une fonction d'affichage
-
-def draw():
-    window.fill(WHITE)
-    pygame.display.update()
-
-
-
-
-
-
+```python
 # Boucle de jeu
 run = True # variable boolean precisant que le jeu tourne
 while run:
-    draw()
     for event in pygame.event.get(): # boucle for pour capturer les evenements de la fenetre
         if event.type == pygame.QUIT:
             run = False
+```
+
+#### Mise en place d'une fonction d'affichage
+```python
+# mise en place d'une fonction d'affichage
+
+def draw():
+    window.fill((255,255,255))
+    pygame.display.update()
+
+```
+
+ajout de l'appel de la fonction dans la boucle de jeu.
+definition d'une section de couleur pour definir les couleur sous forme de variable.
+
+
+
+
+### PARKING
+
+```python
+
+```
