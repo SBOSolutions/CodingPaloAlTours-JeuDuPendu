@@ -200,8 +200,55 @@ dans la fonciton draw() on ajoute:
     window.blit(text, (400, 200))
 ```
 
-### PARKING
+### 8 - test si la lettre est dans le mot lors du choix d'une lettre et eveolution pendu
+
+on position la variable penduStatut = 0
+
+dans la boucle du jeu, pour un clic sur une lettre on l'ajoute à lettreDevinee
+si la lettre n'est dans le mot alors on incremente la variable dependuStatut de 1
 
 ```python
-
+                    if dis < RAYON:
+                        lettre[3] = False
+                        lettreDevinee.append(ltr)
+                        if ltr not in mot:
+                            penduStatut += 1
 ```
+
+### 9 - affichage gagné / perdu - fin du jeu
+
+nous allons ajouter une fonction pour afficher un message au centre de l'écran
+
+
+```python
+def afficheMessage(message):
+    pygame.time.delay(3000)
+    win.fill(BLACK)
+    text = TITRE_FONT.render(message, 1, WHITE)
+    win.blit(text, (WIDTH/2 - text.get_width()/2, HEIGHT/2 - text.get_height()/2))
+    pygame.display.update()
+    pygame.time.delay(3000)
+```
+
+et ensuite dans la bloucle de jeu afficher le message selon les cas:
+
+```python
+    gagne = True
+    for lettre in mot:
+        if lettre not in lettreDevinee:
+            gagne = False
+            break
+
+    if gagne:
+        afficheMessage("Gagné !")
+        break
+
+    if penduStatut == 6:
+        afficheMessage("Perdu !")
+        break
+```
+
+on termine ici, prochaine etape possible, listes mot et choix aléatoire dans la liste, 
+bouton rejouer, ...
+
+Merci.
