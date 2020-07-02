@@ -43,7 +43,7 @@ def draw():
 ```
 
 ajout de l'appel de la fonction dans la boucle de jeu.
-definition d'une section de couleur pour definir les couleur sous forme de variable.
+definition d'une section de couleur pour enregister les couleur sous forme de variable.
 
 explication des positions x,y avec le captage du clic de la souris
 ```python
@@ -77,7 +77,7 @@ window.blit(images[penduStatut], (150,100))
 
 ### 5 - affichage des 26 lettres de l'alphabet dans des cercles
 on commence par faire des maths
-voir le dessin associé
+![image](explication.png)
 
 nous ajoutons les coordonnées des lettres dans une liste
 
