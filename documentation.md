@@ -26,11 +26,16 @@ pygame.display.set_icon(icon) # mise en place de l'image sur la fenetre
 ```python
 # Boucle de jeu
 run = True # variable boolean precisant que le jeu tourne
+FPS = 60
+clock = pygame.time.Clock()
 while run:
+    clock.tick(FPS)
     for event in pygame.event.get(): # boucle for pour capturer les evenements de la fenetre
         if event.type == pygame.QUIT:
             run = False
 ```
+
+sur Repl.it - il y a un petit bug, il faut renommer le ficher et recommencer l'opération, sur la suite cela fonctionne. (installation du depart)
 
 ### 3 - Mise en place d'une fonction d'affichage
 ```python
@@ -85,14 +90,14 @@ nous ajoutons les coordonnées des lettres dans une liste
 # ajout des lettres de l'alphabet
 RAYON = 20
 ECART = 15
-letters = [] # liste pour les lettres
+lettres = [] # liste pour les lettres
 startX = round( (WIDTH - (RAYON * 2 + ECART) * 13) / 2 )  # formule math pour position X sur la fenetre
-startY = 500
+startY = 400
 
 for i in range(26): # pour les 26 lettre de l'alphabet
-    x = startX + ECART * 2 + ((RAYON * 2 + ECART) * i%13) # pour la gestion de la ligne 2
+    x = startX + ECART * 2 + ((RAYON * 2 + ECART) * (i%13)) # pour la gestion de la ligne 2
     y = startY + ((i//13) * (ECART + RAYON * 2))
-    letters.append([x, y])
+    lettres.append([x, y])
 
 ```
 
@@ -112,7 +117,7 @@ LETTER_FONT = pygame.font.SysFont('comicsans', 40)
 
 ajout de A = 65 et chr(A + i) dans l'initialisaiton de la liste lettres.
 
-ajout dans la focntion draw()
+ajout dans la fonction draw()
 ```python
     # dession des lettres
     for lettre in lettres:
@@ -187,7 +192,7 @@ mot = "CODING"
 lettreDevinee = []
 ```
 
-dans la fonciton draw() on ajoute:
+dans la fonction draw() on ajoute:
 ```python
     # dessin du mot
     afficheMot = ""
@@ -222,10 +227,10 @@ nous allons ajouter une fonction pour afficher un message au centre de l'écran
 
 ```python
 def afficheMessage(message):
-    pygame.time.delay(3000)
-    win.fill(BLACK)
+    pygame.time.delay(1000)
+    window.fill(BLACK)
     text = TITRE_FONT.render(message, 1, WHITE)
-    win.blit(text, (WIDTH/2 - text.get_width()/2, HEIGHT/2 - text.get_height()/2))
+    window.blit(text, (WIDTH/2 - text.get_width()/2, HEIGHT/2 - text.get_height()/2))
     pygame.display.update()
     pygame.time.delay(3000)
 ```
